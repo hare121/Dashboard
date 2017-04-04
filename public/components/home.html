@@ -1,0 +1,36 @@
+
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="mainPanel panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Data Insights</h3>
+      </div>
+      <div class="panel-body">
+        <table>
+          <tr>
+            <th ng-repeat="col in columnHead">{{col}}</th>
+          </tr>
+          <tr ng-repeat="arrData in data">
+            <td ng-repeat="rows in arrData">{{rows}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- /.col-lg-6 -->
+</div>
+
+
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Data Charts</h3>
+      </div>
+      <div class="panel-body">
+        
+      </div>
+    </div>
+  </div>
+  <!-- /.col-lg-6 -->
+</div>

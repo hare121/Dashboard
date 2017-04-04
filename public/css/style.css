@@ -1,0 +1,26 @@
+table td,
+table th {
+    padding: 5px;
+    border: 1px solid #fff;
+    text-align: center;
+}
+
+table th {
+    background: #91c5d4;
+}
+
+table td {
+    background: #d5eaf0;
+    /*text-align:center;*/
+}
+
+table tr:hover td{
+  background: #bcd9e1;
+}
+
+/*tbody tr.odd td {
+    background: #bcd9e1;
+}*/
+.mainPanel > .panel-body {
+  overflow-x: scroll;
+}
