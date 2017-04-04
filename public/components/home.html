@@ -6,9 +6,9 @@
         <h3 class="panel-title">Data Insights</h3>
       </div>
       <div class="panel-body">
-        <table>
+        <table id="sortable">
           <tr>
-            <th ng-repeat="col in columnHead">{{col}}</th>
+            <th ng-repeat="col in columnHead" ng-click="sortTable($index)">{{col}}</th>
           </tr>
           <tr ng-repeat="arrData in data">
             <td ng-repeat="rows in arrData">{{rows}}</td>

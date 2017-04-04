@@ -1,9 +1,16 @@
 table td,
+
+
 table th {
     padding: 5px;
     border: 1px solid #fff;
     text-align: center;
+    
 }
+table th:hover{
+    cursor: pointer;
+}
+
 
 table th {
     background: #91c5d4;
