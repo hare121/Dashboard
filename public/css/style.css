@@ -24,3 +24,9 @@ table tr:hover td{
 .mainPanel > .panel-body {
   overflow-x: scroll;
 }
+
+.lblData {
+  font-size: 14px;
+  font-weight: normal;
+  border-bottom: 1px;
+}
