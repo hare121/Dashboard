@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col-md-12 hero-text">
+    <h2>UBS Claims Dashboard</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <uib-accordion>
+      <div uib-accordion-group class="panel-default panel-fix" heading="Filters" is-open="status.isFirstOpen" is-disabled="true">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-default names" type="button">A/C Name</button>
+              </span>
+              <input type="text" class="form-control search" placeholder="Search for..." ng-model="searchFields['A/C Name']">
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+          <div class="col-lg-4">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-default names" type="button">Sedol</button>
+              </span>
+              <input type="text" class="form-control search" placeholder="Search for..." ng-model="searchFields.Sedol">
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+          <div class="col-lg-4">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-default names" type="button">Status</button>
+              </span>
+              <input type="text" class="form-control search" placeholder="Search for..." ng-model="searchFields['Claim Status']">
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+      </div>
+    </uib-accordion>
+  </div>
+  <!-- /.col-lg-6 -->
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <uib-accordion>
+      <div uib-accordion-group class="panel-default panelTable panel-fix" is-open="status.isFirstOpen" is-disabled="true">
+        <uib-accordion-heading>Data Insights <span class="pull-right" ng-click="openCheck()">Add/Remove Columns</span></uib-accordion-heading>
+        <table id="sortable">
+          <tr>
+            <th ng-repeat="col in columnHead" ng-if="isColumnException(col)">{{col}}</th>
+          </tr>
+          <tr ng-repeat="arrData in data|filter:customFilter">
+            <td ng-repeat="(name, val) in arrData" ng-if="isColumnException(name)">
+              <label class="lblData" ng-if="name != 'Action Approval' && name != 'Claim History' && name != 'Global-1 BR' && name != 'Global-1 BR Acceptance' && name != 'G1 BR Approval' && name != 'TLM update' && name != 'comments' && name != Status">{{val}}</label>
+              <label class="lblData" ng-if="name == 'comments'" ng-bind-html="val | unsafe">{{val}}</label>
+
+              <button class="btn btn-default" ng-if="name == 'Status' && arrData['NLP Status'] == 'EXCEPTION'" ng-click="openException(arrData.Num)">Exception</button>
+
+              <select class="btn btn-default dropdown-toggle" ng-model="val" ng-if="name == 'Action Approval'" ng-init="options = ['Accept', 'Decline']" ng-options="x for x in options" ng-change="isValid(arrData.Num, val)">
+                <option value="">Select</option>
+              </select>
+              <!-- <toggle ng-change="isValid(arrData.Num, val)" on="Approve" off="Decline" onstyle="btn-success" offstyle="btn-danger" style="ios" ng-model="val" ng-if="name == 'Accept/Decline'"></toggle> -->
+              <input type="checkbox" ng-if="name == 'G1 BR Approval' && arrData['NLP Status'] == 'BR_DISCREPANCY'" ng-model="arrData['G1 BR Approval']" ng-true-value="'Yes'" ng-false-value="'No'" ng-change="isCareUpdate(arrData['Num'], arrData['G1 BR Approval'])">
+              <input type="checkbox" ng-if="name == 'TLM update'" ng-model="arrData['TLM update']" ng-true-value="'Yes'" ng-false-value="'No'" ng-change="isTLMUpdate(arrData['Num'], arrData['TLM update'])">
+              <button ng-class="{'globalHide': isGlobalVal[arrData.Num]}" class="btn btn-default" ng-if="name == 'Global-1 BR' && arrData['NLP Status'] == 'BR_DISCREPANCY'" ng-click="getGlobalVal(arrData.Num)">Get Rate</button>
+              <label ng-class="{'globalShow': isGlobalVal[arrData.Num]}" class="lblData" ng-if="name == 'Global-1 BR'">{{globalValue[arrData.Num]}}</label>
+              <select class="btn btn-default dropdown-toggle" ng-model="val" ng-if="name == 'Global-1 BR Acceptance'" ng-init="options = ['Yes', 'No']" ng-options="x for x in options" ng-change="isGlobalAccept(arrData.Num, val)">
+                <option value="">Select</option>
+              </select>
+              <button class="btn btn-default" ng-if="name == 'Claim History'" ng-click="open(arrData.Num)">Email</button>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+      <!-- <nav aria-label="Page navigation" class="block-page">
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav> -->
+    </uib-accordion>
+  </div>
+  <!-- /.col-lg-6 -->
+</div>

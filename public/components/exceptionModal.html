@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Exception</h3>
+</div>
+<div class="modal-body" id="modal-body">
+  <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-success'" close="closeAlert($index)">Data Saved Successfully!</div>
+  <div class="row">
+    <div class="col-md-4">
+        <input type="text" ng-model="text" class="form-control">
+    </div>
+    <div class="col-md-4">
+        <select class="btn btn-default dropdown-toggle form-control" ng-model="drop" ng-init="options = ['Yes', 'No']" ng-options="x for x in options">
+          <option value="">Select</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-success form-control" ng-click="saveException(num, text, drop)">Save</button>
+    </div>
+    <div class="col-md-12"></div>
+  </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Close</button>
+    <!-- <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button> -->
+</div>

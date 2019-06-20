@@ -1,7 +1,6 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Merriweather", serif;
     background-color: #f9f9f9;
-    /*min-height: 800px;*/
 }
 
 table td, table th {
@@ -16,7 +15,6 @@ table th:hover {
 
 table th {
     background: #91c5d4;
-    width: 10%;
 }
 
 table td {
@@ -35,20 +33,17 @@ table tr:hover td {
 
 .navbar-fix {
     background-color: #d5eaf0;
-
 }
 
 .hero-text {}
 
 .hero-text>h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.7em;
+    font-size: 2.25em;
     line-height: 1.39;
     color: #000;
     text-align: center;
     /*font-weight: 100;*/
-    margin-bottom: 16px;
-    margin-top: 12px;
+    margin-bottom: 30px;
 }
 
 .panelTable>.panel-collapse>.panel-body {
@@ -59,10 +54,6 @@ table tr:hover td {
     background-color: #484f60;
     color: white;
 }
-
-	/*.panel-body{
-    padding: 7px;
-}*/
 
 .lblData {
     font-size: 14px;
@@ -104,15 +95,7 @@ table tr:hover td {
 
 .form-control {
     border-radius: 10px;
-	height : 33px ;
 }
-/*	.names{
-    font-size: 10px;
-}*/
-
-/*.search{
-    height: 28px;
-}*/
 
 .wrapper {
     text-align: center;
@@ -129,34 +112,4 @@ table tr:hover td {
 
 .footer > .container > p {
   margin-top: 23px;
-  color: #777;
-}
-
-
-/**********************/
-navbar{
-    margin-bottom : 0px;
-}
-
-
-
-nav.navbar.navbar-default.navbar-fix{
-    margin-bottom: 0px;
-}
-
-/**********************/
-.text-muted {
-  color: white;
-}
-
-.globalHide {
-  display: none;
-}
-
-.globalShow {
-  display: block;
-}
-
-.dropdown-toggle {
-  widows: 100%;
 }

@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Email!</h3>
+</div>
+<div class="modal-body" id="modal-body">
+  <table>
+    <tr ng-repeat="(head, value) in emailData" ng-if="isException(head)">
+      <th ng-if="isException(head)">
+        {{head}}
+      </th>
+      <td ng-if="isException(head)">
+        {{value}}
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

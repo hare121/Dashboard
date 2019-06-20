@@ -3,10 +3,11 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+// var mail = require('./routes/mail');
 
 var app = express();
 
-var port = process.env.PORT || 4000;
+var port = process.env.PORT || 3000;
 
 app.use(function(req, res, next){
   if(req.headers['x-forwarded-proto'] === 'https'){
@@ -22,6 +23,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+
+// app.use('/mail', mail);
 
 app.listen(port, function(){
   console.log('Server listening on port: ', port);
