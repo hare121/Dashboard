@@ -18,7 +18,7 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
-    npm run build
+    npm build
   displayName: 'npm install and build'
 - task: PublishCodeCoverageResults@1
   inputs: 
